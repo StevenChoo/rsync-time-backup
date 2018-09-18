@@ -193,7 +193,10 @@ fn_touch() {
 }
 
 fn_ln() {
-	fn_run_cmd "ln -s -- '$1' '$2'"
+    echo "#!/usr/bin/env bash" > "$2"
+    echo "" >> "$2"
+    echo "# Symlinking not allowed. Creating marker with symlink command" >> "$2"
+    echo "fn_run_cmd ln -s -- '$1' '$2'" >> "$2"
 }
 
 # -----------------------------------------------------------------------------
